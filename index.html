@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MathClass</title> <!-- Changed tab title to "MathClass" -->
+  <link rel="icon" type="image/png" href="math_icon.png"> <!-- Updated icon -->
+  <style>
+    body {
+      background-color: #333;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    button {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px; /* Increased padding for better button appearance */
+      cursor: pointer;
+      margin-right: 10px;
+    }
+
+    input[type="text"] {
+      padding: 10px; /* Increased padding for better input appearance */
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin-right: 10px;
+      width: 300px; /* Adjusted input width */
+    }
+
+    iframe {
+      display: none; /* Hide the iframe initially */
+      position: absolute;
+      top: 180px; /* Adjusted top position to provide space for the banner and text */
+      left: 50%; /* Positioned horizontally centered */
+      transform: translateX(-50%); /* Centered horizontally */
+      width: 90%; /* Adjusted width to fit within the layout */
+      height: calc(100vh - 240px); /* Adjusted height to fill the remaining space */
+      border: none;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+    }
+
+    .banner {
+      background-color: #444;
+      padding: 20px; /* Increased padding for better banner appearance */
+      text-align: center;
+      width: 100%;
+      box-sizing: border-box;
+      border-radius: 10px;
+      margin-bottom: 20px; /* Added margin for better separation from text */
+    }
+
+    .text-below-banner {
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: transparent;
+      font-size: 7em; /* Set font size to two times as big */
+      font-weight: bold; /* Make the text bold */
+      font-family: 'Fredoka One', cursive; /* Change font to Fredoka */
+    }
+
+    .text-below-banner .light-blue {
+      color: #007bff; /* Light blue color */
+    }
+
+    .more-text {
+      text-align: center;
+      font-size: 1em; /* Set font size */
+      margin-top: 20px; /* Add margin to separate from the MathClass text */
+      font-family: 'Fredoka One', cursive; /* Change font to Fredoka */
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+</head>
+
+<body id="top">
+
+  <div class="banner">
+    <input type="text" id="searchInput" placeholder="Enter your search query (e.g., artclass.site)">
+    <button onclick="search()">Search</button>
+    <button onclick="closeTab()">Close Tab</button>
+    <button onclick="cloak()">Cloak</button> <!-- Added Cloak button -->
+  </div>
+
+  <iframe id="iframe"></iframe>
+
+  <div class="text-below-banner">
+    <p id="mathClass">Math<span class="light-blue">Class</span></p>
+  </div>
+
+  <div class="more-text">
+    <p>Use other games sites with this!</p>
+  </div>
+
+  <script>
+    function search() {
+      var searchQuery = document.getElementById("searchInput").value;
+      var iframe = document.getElementById("iframe");
+
+      if (searchQuery === "artclass.site") {
+        iframe.src = "https://artclass.site"; // Directly navigate to the specific link
+      } else if (searchQuery.startsWith("http://") || searchQuery.startsWith("https://")) {
+        iframe.src = searchQuery; // Directly navigate to the URL
+      } else {
+        var searchURL = "https://www.bing.com/search?q=" + encodeURIComponent(searchQuery);
+        iframe.src = searchURL; // Perform a Bing search
+      }
+
+      // Show the iframe when a search is performed
+      iframe.style.display = "block";
+      document.getElementById("mathClass").style.display = "none"; // Hide the MathClass text
+    }
+
+    function closeTab() {
+      window.close(); // Close the tab
+    }
+
+    function cloak() {
+      document.title = "New Tab"; // Change tab title to "New Tab"
+      var favicon = document.querySelector('link[rel="icon"]');
+      favicon.href = "cloakedicon.png"; // Change favicon to "cloakedicon.png"
+      alert("Tab cloaked if teacher come press the close tab button if neeeded!"); // Placeholder functionality for the Cloak button
+    }
+
+    window.addEventListener('keydown', function(event) {
+      if (event.key === 't' && !event.target.closest('#top')) {
+        closeTab();
+      }
+    });
+  </script>
+
+</body>
+
+</html>
