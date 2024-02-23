@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Math Class</title>
- 
+  <link rel="icon" type="image/png" href="math_icon.png">
   <style>
     body {
       background-color: #333;
@@ -141,13 +141,13 @@ function cloak() {
   var currentURL = window.location.href;
   var win = window.open("about:blank");
   win.document.open();
-  win.document.write("<html><head><title>New Tab</title><meta name='robots' content='noindex, nofollow'><link rel='icon.png' href=''></head><body></body></html>");
+  win.document.write("<html><head><title>Error</title><meta name='robots' content='noindex, nofollow'><link rel='cloakedicon.png' href=''></head><body></body></html>");
   win.document.close();
   
   setTimeout(function() {
     var prevTab = window.open("", "_self");
     prevTab.document.open();
-    prevTab.document.write("<html><head><title>Error</title><meta name='robots' content='noindex, nofollow'><link rel='icon.png' href=''></head><body></body></html>");
+    prevTab.document.write("<html><head><title>Error</title><meta name='robots' content='noindex, nofollow'><link rel='icon' href=''></head><body></body></html>");
   }, 1000);
 }
 
@@ -166,5 +166,3 @@ window.addEventListener('keydown', function(event) {
 
 </body>
 </html>
-New
- .png
