@@ -1,169 +1,169 @@
-<!DOCTYPE html>
-<html lang="en">
+  <!DOCTYPE html>
+  <html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Math Class</title>
-  <link rel="icon" type="image/png" href="math_icon.png">
-  <style>
-    body {
-      background-color: #333;
-      color: #fff;
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Math Class</title>
+    <link rel="icon" type="image/png" href="math_icon.png">
+    <style>
+      body {
+        background-color: #333;
+        color: #fff;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+      }
+
+      button {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        cursor: pointer;
+        margin-right: 10px;
+        transition: transform 0.3s; /* Added transition property */
+      }
+
+      button:hover {
+        transform: scale(1.1); /* Increase scale on hover */
+      }
+
+      input[type="text"] {
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        margin-right: 10px;
+        width: 300px;
+      }
+
+      iframe {
+        position: absolute;
+        top: 150px; /* Adjusted top position to move the iframe up */
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        height: 400px; /* Changed to a fixed height for the iframe */
+        border: none;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+        overflow: hidden;
+        transition: height 0.5s;
+      }
+
+
+      .banner {
+        background-color: #444;
+        padding: 20px;
+        text-align: center;
+        width: 100%;
+        box-sizing: border-box;
+        border-radius: 10px;
+        margin-bottom: 20px;
+      }
+
+      .text-below-banner {
+        text-align: center;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: transparent;
+        font-size: 7em;
+        font-weight: bold;
+        font-family: 'Fredoka One', cursive;
+      }
+
+      .text-below-banner .light-blue {
+        color: #007bff;
+      }
+
+      .more-text {
+        text-align: center;
+        font-size: 1em;
+        margin-top: 20px;
+        font-family: 'Fredoka One', cursive;
+        display: block;
+      }
+
+      .more-text.hidden {
+          display: none;
+      }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+  </head>
+
+  <body id="top">
+
+  <div class="banner">
+    <input type="text" id="searchInput" placeholder="Enter your search query (e.g., artclass.site)">
+    <button onclick="search()">Search</button>
+    <button onclick="closeTab()">Close Tab</button>
+    <button onclick="cloak()">Cloak</button>
+  </div>
+
+  <iframe id="iframe"></iframe>
+
+  <div class="text-below-banner">
+    <p id="mathClass">Math<span class="light-blue">Class</span></p>
+  </div>
+
+  <div class="more-text">
+    <p>Use other games sites with this! <button onclick="closeMoreText()">Close</button></p>
+  </div>
+
+  <script>
+  function search() {
+    var searchQuery = document.getElementById("searchInput").value;
+    var iframe = document.getElementById("iframe");
+
+    if (searchQuery === "artclass.site") {
+      iframe.src = "https://artclass.site";
+    } else if (searchQuery.startsWith("http://") || searchQuery.startsWith("https://")) {
+      iframe.src = searchQuery;
+    } else {
+      var searchURL = "https://swisscows.com/en/web?query=" + encodeURIComponent(searchQuery);
+      iframe.src = searchURL;
     }
 
-    button {
-      background-color: #007bff;
-      color: #fff;
-      border: none;
-      border-radius: 5px;
-      padding: 10px 20px;
-      cursor: pointer;
-      margin-right: 10px;
-      transition: transform 0.3s; /* Added transition property */
-    }
-
-    button:hover {
-      transform: scale(1.1); /* Increase scale on hover */
-    }
-
-    input[type="text"] {
-      padding: 10px;
-      border-radius: 5px;
-      border: 1px solid #ccc;
-      margin-right: 10px;
-      width: 300px;
-    }
-
-    iframe {
-      position: absolute;
-      top: 150px; /* Adjusted top position to move the iframe up */
-      left: 50%;
-      transform: translateX(-50%);
-      width: 90%;
-      height: 400px; /* Changed to a fixed height for the iframe */
-      border: none;
-      border-radius: 10px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-      overflow: hidden;
-      transition: height 0.5s;
-    }
-
-
-    .banner {
-      background-color: #444;
-      padding: 20px;
-      text-align: center;
-      width: 100%;
-      box-sizing: border-box;
-      border-radius: 10px;
-      margin-bottom: 20px;
-    }
-
-    .text-below-banner {
-      text-align: center;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      background-color: transparent;
-      font-size: 7em;
-      font-weight: bold;
-      font-family: 'Fredoka One', cursive;
-    }
-
-    .text-below-banner .light-blue {
-      color: #007bff;
-    }
-
-    .more-text {
-      text-align: center;
-      font-size: 1em;
-      margin-top: 20px;
-      font-family: 'Fredoka One', cursive;
-      display: block;
-    }
-
-    .more-text.hidden {
-        display: none;
-    }
-  </style>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
-</head>
-
-<body id="top">
-
-<div class="banner">
-  <input type="text" id="searchInput" placeholder="Enter your search query (e.g., artclass.site)">
-  <button onclick="search()">Search</button>
-  <button onclick="closeTab()">Close Tab</button>
-  <button onclick="cloak()">Cloak</button>
-</div>
-
-<iframe id="iframe"></iframe>
-
-<div class="text-below-banner">
-  <p id="mathClass">Math<span class="light-blue">Class</span></p>
-</div>
-
-<div class="more-text">
-  <p>Use other games sites with this! <button onclick="closeMoreText()">Close</button></p>
-</div>
-
-<script>
-function search() {
-  var searchQuery = document.getElementById("searchInput").value;
-  var iframe = document.getElementById("iframe");
-
-  if (searchQuery === "artclass.site") {
-    iframe.src = "https://artclass.site";
-  } else if (searchQuery.startsWith("http://") || searchQuery.startsWith("https://")) {
-    iframe.src = searchQuery;
-  } else {
-    var searchURL = "https://www.bing.com/search?q=" + encodeURIComponent(searchQuery);
-    iframe.src = searchURL;
+    iframe.style.display = "block";
+    document.getElementById("mathClass").style.display = "none";
   }
 
-  iframe.style.display = "block";
-  document.getElementById("mathClass").style.display = "none";
-}
-
-function closeTab() {
-  window.close();
-}
-
-function cloak() {
-  document.title = "New Tab";
-  var iframe = document.getElementById("iframe");
-  var currentURL = window.location.href;
-  var win = window.open("about:blank");
-  win.document.open();
-  win.document.write("<html><head><title>Cloaked Tab</title></head><body style='margin:0;'><iframe src='" + currentURL + "' style='border:none;width:100%;height:100vh;'></iframe></body></html>");
-  win.document.write("<html><head' content='noindex, nofollow'><link rel='' href='cloakedicon.png'></head><body></body></html>")
-  win.document.close();
-
-  setTimeout(function() {
-    var prevTab = window.open("", "_self");
-    prevTab.document.open();
-    prevTab.document.write("<html><head><title>Error</title><meta name='robots' content='noindex, nofollow'><link rel='icon' href=''></head><body></body></html>");
-  }, 1000);
-}
-
-function closeMoreText() {
-    document.querySelector(".more-text").classList.add("hidden");
-    document.getElementById("iframe").style.height = "490px";
-}
-
-
-window.addEventListener('keydown', function(event) {
-  if (event.key === 't' && !event.target.closest('#top')) {
-    closeTab();
+  function closeTab() {
+    window.close();
   }
-});
-</script>
 
-</body>
+    function cloak() {
+      document.title = "New Tab";
+      var iframe = document.getElementById("iframe");
+      var currentURL = window.location.href;
+      var win = window.open("about:blank");
+      win.document.open();
+      win.document.write("<html><head><title>Cloaked Tab</title></head><body style='margin:0;'><iframe src='" + currentURL + "' style='border:none;width:100%;height:100vh;'></iframe></body></html>");
+      win.document.write("<html><head'><link rel='icon' type='image/png' href='cloakedicon.png'></head><body></body></html>")
+      win.document.close();
+
+      setTimeout(function() {
+        var prevTab = window.open("", "_self");
+        prevTab.document.open();
+        prevTab.document.write("<html><head><title>Error</title><meta name='robots' content='noindex, nofollow'><link rel='icon' type='image/png' href='icon.png'></head><body></body></html>");
+      }, 1000);
+    }
+
+  function closeMoreText() {
+      document.querySelector(".more-text").classList.add("hidden");
+      document.getElementById("iframe").style.height = "490px";
+  }
+
+
+  window.addEventListener('keydown', function(event) {
+    if (event.key === 't' && !event.target.closest('#top')) {
+      closeTab();
+    }
+  });
+  </script>
+
+  </body>
 </html>
