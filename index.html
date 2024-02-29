@@ -1,169 +1,121 @@
-  <!DOCTYPE html>
-  <html lang="en">
-
-  <head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Math Class</title>
-    <link rel="icon" type="image/png" href="math_icon.png">
+    <title>Feather FPS Unlocker</title>
+    <link rel="icon" href="IconFeather.png" type="image/png">
     <style>
-      body {
-        background-color: #333;
-        color: #fff;
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-      }
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
 
-      button {
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        padding: 10px 20px;
-        cursor: pointer;
-        margin-right: 10px;
-        transition: transform 0.3s; /* Added transition property */
-      }
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            background: #333; /* Changed background color to dark grey */
+            font-family: 'Arial', sans-serif;
+        }
 
-      button:hover {
-        transform: scale(1.1); /* Increase scale on hover */
-      }
+        /* Changed from video to img */
+        img {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            width: 100%; /* Set width to 100% */
+            height: 100%; /* Set height to 100% */
+            object-fit: cover; /* Cover the entire container */
+            object-position: center; /* Center the image */
+            z-index: -1;
+        }
 
-      input[type="text"] {
-        padding: 10px;
-        border-radius: 5px;
-        border: 1px solid #ccc;
-        margin-right: 10px;
-        width: 300px;
-      }
+        .download-container {
+            text-align: center;
+            z-index: 1;
+            color: #fff;
+        }
 
-      iframe {
-        position: absolute;
-        top: 150px; /* Adjusted top position to move the iframe up */
-        left: 50%;
-        transform: translateX(-50%);
-        width: 90%;
-        height: 400px; /* Changed to a fixed height for the iframe */
-        border: none;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-        overflow: hidden;
-        transition: height 0.5s;
-      }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            letter-spacing: 2px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Added text shadow for emphasis */
+            font-weight: bold; /* Increased font weight for emphasis */
+        }
 
+        p {
+            font-size: 1.2em;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
 
-      .banner {
-        background-color: #444;
-        padding: 20px;
-        text-align: center;
-        width: 100%;
-        box-sizing: border-box;
-        border-radius: 10px;
-        margin-bottom: 20px;
-      }
+        .download-button {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 18px;
+            color: #fff;
+            background-color: #3498db;
+            border: none;
+            border-radius: 25px; /* Increased border-radius for a rounded button */
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            margin-right: 10px; /* Added margin for spacing */
+        }
 
-      .text-below-banner {
-        text-align: center;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background-color: transparent;
-        font-size: 7em;
-        font-weight: bold;
-        font-family: 'Fredoka One', cursive;
-      }
+        .download-button:hover {
+            background-color: #2980b9; /* Darker shade on hover */
+        }
 
-      .text-below-banner .light-blue {
-        color: #007bff;
-      }
+        /* Style for GitHub button */
+        .github-button {
+            background-color: #808080; /* Grey background for GitHub */
+        }
 
-      .more-text {
-        text-align: center;
-        font-size: 1em;
-        margin-top: 20px;
-        font-family: 'Fredoka One', cursive;
-        display: block;
-      }
+        .github-button:hover {
+            background-color: #606060; /* Darker shade on hover */
+        }
 
-      .more-text.hidden {
-          display: none;
-      }
+        /* Style for YouTube button */
+        .youtube-button {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 18px;
+            color: #fff;
+            background-color: #ff0000; /* Red background for YouTube */
+            border: none;
+            border-radius: 25px; /* Increased border-radius for a rounded button */
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s;
+            margin-top: 20px; /* Added margin for spacing */
+        }
+
+        .youtube-button:hover {
+            background-color: #cc0000; /* Darker shade on hover */
+        }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
-  </head>
+</head>
+<body>
+    <!-- Changed from video to img -->
+    <img src="background.gif" alt="Background GIF">
 
-  <body id="top">
+    <div class="download-container">
+        <h1>Feather FPS Unlocker</h1>
+        <p>This program will uncap your FPS and make Roblox a better experience all around! Download the Feather FPS Unlocker and let's get started!</p>
 
-  <div class="banner">
-    <input type="text" id="searchInput" placeholder="Enter your search query (e.g., artclass.site)">
-    <button onclick="search()">Search</button>
-    <button onclick="closeTab()">Close Tab</button>
-    <button onclick="cloak()">Cloak</button>
-  </div>
+        <a href="RobloxFPSUnlocker.zip" download="RobloxFPSUnlocker" class="download-button">Download File</a>
 
-  <iframe id="iframe"></iframe>
+        <!-- Use the "github-button" class for the GitHub link -->
+        <a href="https://github.com/Hingdragon/FeatherFPSRoblox/releases" class="download-button github-button">Visit Github</a>
+    </div>
 
-  <div class="text-below-banner">
-    <p id="mathClass">Math<span class="light-blue">Class</span></p>
-  </div>
-
-  <div class="more-text">
-    <p>Use other games sites with this! <button onclick="closeMoreText()">Close</button></p>
-  </div>
-
-  <script>
-  function search() {
-    var searchQuery = document.getElementById("searchInput").value;
-    var iframe = document.getElementById("iframe");
-
-    if (searchQuery === "artclass.site") {
-      iframe.src = "https://artclass.site";
-    } else if (searchQuery.startsWith("http://") || searchQuery.startsWith("https://")) {
-      iframe.src = searchQuery;
-    } else {
-      var searchURL = "https://swisscows.com/en/web?query=" + encodeURIComponent(searchQuery);
-      iframe.src = searchURL;
-    }
-
-    iframe.style.display = "block";
-    document.getElementById("mathClass").style.display = "none";
-  }
-
-  function closeTab() {
-    window.close();
-  }
-
-    function cloak() {
-      document.title = "New Tab";
-      var iframe = document.getElementById("iframe");
-      var currentURL = window.location.href;
-      var win = window.open("about:blank");
-      win.document.open();
-      win.document.write("<html><head><title>Cloaked Tab</title></head><body style='margin:0;'><iframe src='" + currentURL + "' style='border:none;width:100%;height:100vh;'></iframe></body></html>");
-      win.document.write("<html><head'><link rel='icon' type='image/png' href='cloakedicon.png'></head><body></body></html>")
-      win.document.close();
-
-      setTimeout(function() {
-        var prevTab = window.open("", "_self");
-        prevTab.document.open();
-        prevTab.document.write("<html><head><title>Error</title><meta name='robots' content='noindex, nofollow'><link rel='icon' type='image/png' href='icon.png'></head><body></body></html>");
-      }, 1000);
-    }
-
-  function closeMoreText() {
-      document.querySelector(".more-text").classList.add("hidden");
-      document.getElementById("iframe").style.height = "490px";
-  }
-
-
-  window.addEventListener('keydown', function(event) {
-    if (event.key === 't' && !event.target.closest('#top')) {
-      closeTab();
-    }
-  });
-  </script>
-
-  </body>
+    <!-- YouTube button outside download-container -->
+    <a href="https://www.youtube.com/@hingdragon" class="youtube-button">YouTube</a>
+</body>
 </html>
